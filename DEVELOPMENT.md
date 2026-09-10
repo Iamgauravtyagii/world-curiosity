@@ -39,23 +39,93 @@ When working in this repository, Codex should:
 9. Never silently replace an existing technology decision.
 10. Keep commits focused and understandable.
 
-## Initial implementation order
+## Phased implementation plan
 
-1. Initialize Next.js + TypeScript project.
-2. Verify local development, linting, type checking, and production build.
-3. Establish base layout and typography.
-4. Build navigation/sidebar.
-5. Define content schema.
-6. Add one sample article.
-7. Build article page.
-8. Build category and tag pages.
-9. Add responsive image handling.
-10. Build archive.
-11. Add search.
-12. Add SEO metadata, sitemap, RSS, and sharing metadata.
-13. Add visual polish and accessibility improvements.
-14. Deploy.
-15. Replace sample content with real content.
+Work proceeds in phases. A phase is a product milestone, not permission to make
+many changes at once. Within each phase, complete only one small, reviewable
+chunk at a time: usually one file, one component, one function, or one focused
+piece of logic.
+
+After each chunk:
+
+1. Explain what changed, why it exists, and its impact.
+2. Run the relevant small verification.
+3. Stop for review.
+4. Continue only after the user confirms they understand it or asks questions.
+
+### Phase 0 — Application baseline
+
+Goal: initialize the approved Next.js, TypeScript, React, Tailwind, and ESLint
+baseline without adding product features.
+
+- Generate the application structure.
+- Verify development startup, linting, type checking, and production build.
+- Review the generated files before changing starter code.
+
+### Phase 1 — Editorial site shell
+
+Goal: replace the starter presentation with a minimal, accessible publication
+shell.
+
+- Establish shared document metadata and the root layout.
+- Establish base typography and global styles.
+- Create the initial home-page structure.
+- Add calm, responsive primary navigation.
+
+### Phase 2 — Content foundation
+
+Goal: make Git-managed article content reliable before designing all discovery
+pages.
+
+- Choose and document the article directory convention.
+- Define one schema for article frontmatter.
+- Implement server-only article loading.
+- Add and validate one small sample article.
+
+### Phase 3 — Article reading experience
+
+Goal: render a complete article page from validated content.
+
+- Generate article routes from slugs.
+- Render article metadata and body.
+- Add cover-image and caption conventions.
+- Add a simple, accessible article layout.
+
+### Phase 4 — Discovery and navigation
+
+Goal: let readers move through the collection by topic and time.
+
+- Generate category pages.
+- Generate tag pages.
+- Build chronological archive browsing.
+- Add related-article rules only after enough content exists to test them.
+
+### Phase 5 — Media and responsive refinement
+
+Goal: make photography first-class without complicating media infrastructure.
+
+- Document repository image conventions.
+- Add responsive optimized image rendering.
+- Add gallery support only when a real article needs it.
+- Verify mobile layout, captions, and alt text.
+
+### Phase 6 — Search and publishing metadata
+
+Goal: improve discovery and sharing while keeping the site static-first.
+
+- Select a lightweight search approach based on actual content volume.
+- Implement search as a separate focused chunk.
+- Add page metadata, canonical URLs, sitemap, robots, and sharing metadata.
+- Add RSS if its maintenance cost remains practical.
+
+### Phase 7 — Quality, deployment, and real content
+
+Goal: prepare a reliable public release.
+
+- Perform accessibility and performance review.
+- Verify representative pages and mobile behavior.
+- Choose a deployment provider without provider-specific coupling.
+- Deploy and replace sample content with real articles incrementally.
 
 ## Git discipline
 
