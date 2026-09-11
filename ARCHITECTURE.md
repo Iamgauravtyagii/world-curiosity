@@ -63,6 +63,43 @@ Benefits:
 
 A CMS/database may be introduced later if the editorial workflow demonstrates a real need.
 
+### V1 directory convention
+
+Store each article as one MDX source file:
+
+```text
+content/articles/<article-slug>.mdx
+```
+
+Store its web-ready images in a matching public directory:
+
+```text
+public/images/articles/<article-slug>/<image-file>
+```
+
+The article filename, its frontmatter `slug`, and its image directory use the
+same slug. For example, `content/articles/quetedlinburg.mdx` uses images from
+`public/images/articles/quetedlinburg/`.
+
+Commit web-ready image derivatives only. Keep original high-resolution source
+photographs outside the repository or in an explicitly excluded local archive.
+
+### V1 URL convention
+
+Use explicit, plural route prefixes:
+
+```text
+/articles/<article-slug>
+/categories/<category-slug>
+/tags/<tag-slug>
+/archive
+```
+
+Article URLs use the validated frontmatter `slug` directly. Category and tag
+URLs use a deterministic lowercase, hyphenated slug derived from their display
+label. For example, `Ideas / Curiosity` becomes `ideas-curiosity`, while the
+visible label remains unchanged. The archive is a single chronological index.
+
 ## 5. Content metadata
 
 Article metadata should be schema-validated.
@@ -82,7 +119,45 @@ Article
 └── body
 ```
 
-The exact implementation should use the capabilities of the selected content solution rather than creating an unnecessary custom CMS.
+### V1 frontmatter schema
+
+Each article MDX file must provide the following frontmatter:
+
+| Field | Type | Rule |
+| --- | --- | --- |
+| `title` | string | Required, non-empty. |
+| `slug` | string | Required, lowercase words separated by hyphens. It must match the filename and image directory. |
+| `date` | string | Required publication date in `YYYY-MM-DD` format. |
+| `updated` | string | Optional update date in `YYYY-MM-DD` format. |
+| `description` | string | Required, non-empty short article summary. |
+| `category` | string | Required primary category. The controlled category vocabulary will be defined separately. |
+| `tags` | string array | Required, with at least one tag. |
+| `coverImage` | object | Required. Contains `src`, required non-empty `alt`, and optional `caption`. |
+| `gallery` | image object array | Optional. Each item follows the `coverImage` image shape. |
+| `video` | object | Optional external embed data: `provider` and `url`. |
+| `sources` | source object array | Optional external references, each with `label` and `url`. |
+
+Example:
+
+```yaml
+---
+title: "A Morning in Quedlinburg"
+slug: "a-morning-in-quetedlinburg"
+date: "2026-09-11"
+description: "A walk through the medieval streets of Quedlinburg."
+category: "Travel"
+tags:
+  - "Germany"
+  - "Architecture"
+coverImage:
+  src: "/images/articles/a-morning-in-quetedlinburg/cover.jpg"
+  alt: "Half-timbered houses along a street in Quedlinburg"
+  caption: "Quedlinburg, Germany"
+---
+```
+
+The implementation must validate this schema in one shared server-only module.
+Do not create a custom CMS or duplicate validation rules across routes.
 
 ## 6. Media architecture
 
