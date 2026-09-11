@@ -53,6 +53,21 @@ After each chunk:
 3. Stop for review.
 4. Continue only after the user confirms they understand it or asks questions.
 
+## Current implementation status
+
+This section is the contributor-facing timeline. Update it when a phase reaches
+a meaningful milestone, rather than relying only on commit history.
+
+- **Phase 0 — Application baseline:** complete.
+  - Next.js App Router, TypeScript, Tailwind CSS, and ESLint are initialized.
+  - Linting, type checking, local development startup, and a production build
+    have been verified.
+- **Phase 1 — Editorial site shell:** in progress.
+  - Shared metadata, header, footer, global styling, a responsive home-page
+    introduction, and a keyboard skip link are complete.
+  - Primary navigation links are deferred until the corresponding routes exist.
+- **Phase 2 onward:** not started.
+
 ### Phase 0 — Application baseline
 
 Goal: initialize the approved Next.js, TypeScript, React, Tailwind, and ESLint

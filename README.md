@@ -6,9 +6,15 @@ The site is intentionally broader than a conventional travel blog. The author is
 
 ## Project status
 
-**Phase:** Project definition and technology selection
+**Phase:** Phase 1 — Editorial site shell (in progress)
 
-No application code has been generated yet. The next phase is to initialize the chosen stack and implement the site incrementally.
+The Next.js application baseline is initialized. The shared layout, site
+identity, accessible home-page foundation, and global styles are in place.
+
+The next implementation milestone is the content foundation: establish the
+article directory convention, frontmatter schema, and server-only content
+loading. Primary navigation links are intentionally deferred until their target
+routes exist.
 
 ## Working principle
 
