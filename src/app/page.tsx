@@ -36,6 +36,7 @@ export default async function Home() {
                     alt={article.frontmatter.coverImage.alt}
                     className="aspect-video w-full rounded-sm object-cover transition-opacity group-hover:opacity-85"
                     height={900}
+                    sizes="(min-width: 1280px) 516px, (min-width: 640px) 50vw, 100vw"
                     src={article.frontmatter.coverImage.src}
                     width={1600}
                   />

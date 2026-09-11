@@ -64,6 +64,7 @@ export default async function ArticlePage({
           className="aspect-video w-full rounded-sm object-cover"
           height={900}
           priority
+          sizes="(min-width: 1024px) 688px, (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
           src={coverImage.src}
           width={1600}
         />

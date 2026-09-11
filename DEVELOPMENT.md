@@ -62,11 +62,24 @@ a meaningful milestone, rather than relying only on commit history.
   - Next.js App Router, TypeScript, Tailwind CSS, and ESLint are initialized.
   - Linting, type checking, local development startup, and a production build
     have been verified.
-- **Phase 1 — Editorial site shell:** in progress.
+- **Phase 1 — Editorial site shell:** complete.
   - Shared metadata, header, footer, global styling, a responsive home-page
-    introduction, and a keyboard skip link are complete.
-  - Primary navigation links are deferred until the corresponding routes exist.
-- **Phase 2 onward:** not started.
+    introduction, keyboard skip link, and primary navigation are complete.
+- **Phase 2 — Content foundation:** complete.
+  - The MDX directory convention, frontmatter schema, server-only loader, and
+    one validated sample article are in place.
+- **Phase 3 — Article reading experience:** complete.
+  - Static article routes render validated metadata, cover images, captions,
+    topic links, and MDX bodies.
+- **Phase 4 — Discovery and navigation:** complete.
+  - Home-page discovery, category and tag indexes/pages, and chronological
+    archive browsing are complete.
+  - Related-article rules remain deferred until enough real content exists to
+    evaluate them.
+- **Phase 5 — Media and responsive refinement:** in progress.
+  - Image folder conventions, accessible alt text/captions, `next/image`, and
+    responsive image `sizes` are in place.
+- **Phase 6 onward:** not started.
 
 ### Phase 0 — Application baseline
 

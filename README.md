@@ -6,15 +6,14 @@ The site is intentionally broader than a conventional travel blog. The author is
 
 ## Project status
 
-**Phase:** Phase 1 — Editorial site shell (in progress)
+**Phase:** Phase 5 — Media and responsive refinement (in progress)
 
-The Next.js application baseline is initialized. The shared layout, site
-identity, accessible home-page foundation, and global styles are in place.
+The Next.js application baseline, editorial site shell, Git-managed MDX content
+foundation, article pages, and discovery routes are in place. The current work
+focuses on responsive image delivery and media conventions.
 
-The next implementation milestone is the content foundation: establish the
-article directory convention, frontmatter schema, and server-only content
-loading. Primary navigation links are intentionally deferred until their target
-routes exist.
+The next implementation milestone after Phase 5 is search and publishing
+metadata.
 
 ## Working principle
 
