@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PrimaryNavigation } from "./primary-navigation";
 
 export function SiteHeader() {
   return (
@@ -11,30 +12,7 @@ export function SiteHeader() {
           >
             World Curiosity
           </Link>
-          <nav aria-label="Primary navigation">
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              <li>
-                <Link className="hover:underline" href="/">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:underline" href="/categories">
-                  Categories
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:underline" href="/tags">
-                  Tags
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:underline" href="/archive">
-                  Archive
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <PrimaryNavigation />
         </div>
         <p className="mt-4 text-sm text-muted">
           A journal of places, culture, history, and ideas.
