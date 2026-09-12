@@ -2,8 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import {
+  Curiosity,
+  ImagePair,
+  PullQuote,
+  WideImage,
+} from "@/components/editorial-mdx";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 import { toSlug } from "@/lib/slug";
+
+const mdxComponents = {
+  Curiosity,
+  PullQuote,
+  WideImage,
+  ImagePair,
+};
 
 export async function generateStaticParams() {
   const articles = await getAllArticles();
@@ -73,7 +86,7 @@ export default async function ArticlePage({
 
         <div className="mx-auto w-full max-w-6xl px-6 pb-20 pt-14 sm:px-10 sm:pb-28 sm:pt-20">
           <div className="article-prose">
-            <MDXRemote source={article.body} />
+            <MDXRemote components={mdxComponents} source={article.body} />
           </div>
 
           <footer className="mt-16 max-w-[42rem] border-t border-border pt-8 sm:mt-20">
