@@ -25,58 +25,78 @@ export default async function ArticlePage({
     article.frontmatter;
 
   return (
-    <main
-      className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10 sm:py-24"
-      id="main-content"
-    >
-      <Link
-        className="text-sm font-semibold uppercase tracking-[0.16em] text-muted hover:underline"
-        href={`/categories/${toSlug(category)}`}
-      >
-        {category}
-      </Link>
-      <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-        {title}
-      </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-        {description}
-      </p>
-      <time className="mt-6 block text-sm text-muted" dateTime={date}>
-        Published {date}
-      </time>
-      <nav aria-label="Article tags" className="mt-6">
-        <ul className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <li key={tag}>
+    <main className="flex-1" id="main-content">
+      <article>
+        <header className="mx-auto w-full max-w-6xl px-6 pb-12 pt-20 sm:px-10 sm:pb-16 sm:pt-28">
+          <div className="max-w-4xl">
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.18em]">
               <Link
-                className="rounded-full border border-black/10 px-3 py-1 text-sm text-muted hover:border-black/30 hover:text-foreground"
-                href={`/tags/${toSlug(tag)}`}
+                className="text-rust underline decoration-rust/50 underline-offset-4 hover:text-olive"
+                href={`/categories/${toSlug(category)}`}
               >
-                {tag}
+                {category}
               </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <figure className="mt-10">
-        <Image
-          alt={coverImage.alt}
-          className="aspect-video w-full rounded-sm object-cover"
-          height={900}
-          priority
-          sizes="(min-width: 1024px) 688px, (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
-          src={coverImage.src}
-          width={1600}
-        />
-        {coverImage.caption ? (
-          <figcaption className="mt-3 text-sm text-muted">
-            {coverImage.caption}
-          </figcaption>
-        ) : null}
-      </figure>
-      <div className="mt-12 text-lg leading-8 [&_h2]:mt-12 [&_h2]:text-2xl [&_h2]:font-semibold [&_p]:mt-6">
-        <MDXRemote source={article.body} />
-      </div>
+              <span aria-hidden="true" className="text-muted">
+                ·
+              </span>
+              <time className="text-muted" dateTime={date}>
+                {date}
+              </time>
+            </p>
+            <h1 className="mt-7 max-w-4xl font-display text-5xl leading-[0.94] tracking-[-0.06em] sm:text-7xl lg:text-8xl">
+              {title}
+            </h1>
+            <p className="mt-8 max-w-2xl text-xl leading-8 text-muted sm:text-2xl sm:leading-9">
+              {description}
+            </p>
+          </div>
+        </header>
+
+        <figure className="mx-auto w-full max-w-6xl px-6 sm:px-10">
+          <div className="bg-olive/10">
+            <Image
+              alt={coverImage.alt}
+              className="h-auto w-full"
+              height={900}
+              priority
+              sizes="(min-width: 1280px) 1152px, (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
+              src={coverImage.src}
+              width={1600}
+            />
+          </div>
+          {coverImage.caption ? (
+            <figcaption className="mt-4 max-w-2xl text-sm leading-6 text-muted">
+              {coverImage.caption}
+            </figcaption>
+          ) : null}
+        </figure>
+
+        <div className="mx-auto w-full max-w-6xl px-6 pb-20 pt-14 sm:px-10 sm:pb-28 sm:pt-20">
+          <div className="article-prose">
+            <MDXRemote source={article.body} />
+          </div>
+
+          <footer className="mt-16 max-w-[42rem] border-t border-border pt-8 sm:mt-20">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-olive">
+              Filed under
+            </p>
+            <nav aria-label="Article tags" className="mt-4">
+              <ul className="flex flex-wrap gap-x-5 gap-y-3">
+                {tags.map((tag) => (
+                  <li key={tag}>
+                    <Link
+                      className="text-sm text-muted underline decoration-border decoration-2 underline-offset-4 hover:text-foreground hover:decoration-rust"
+                      href={`/tags/${toSlug(tag)}`}
+                    >
+                      {tag}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </footer>
+        </div>
+      </article>
     </main>
   );
 }

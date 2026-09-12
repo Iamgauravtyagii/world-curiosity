@@ -60,3 +60,131 @@ a {
   outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
+
+.article-prose {
+  max-width: 42rem;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.article-prose > :first-child {
+  margin-top: 0;
+}
+
+.article-prose p {
+  margin-top: 1.75rem;
+}
+
+.article-prose h2,
+.article-prose h3 {
+  font-family: var(--font-lora), Georgia, serif;
+  letter-spacing: -0.03em;
+}
+
+.article-prose h2 {
+  margin-top: 4.5rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.05;
+}
+
+.article-prose h3 {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.article-prose :is(ul, ol) {
+  margin-top: 1.75rem;
+  padding-left: 1.4rem;
+}
+
+.article-prose ul {
+  list-style: disc;
+}
+
+.article-prose ol {
+  list-style: decimal;
+}
+
+.article-prose li + li {
+  margin-top: 0.5rem;
+}
+
+.article-prose a {
+  color: var(--rust);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.article-prose a:hover {
+  color: var(--olive);
+}
+
+.article-prose strong {
+  font-weight: 700;
+}
+
+.article-prose em {
+  font-style: italic;
+}
+
+.article-prose blockquote {
+  margin-top: 3rem;
+  border-left: 2px solid var(--rust);
+  padding-left: 1.5rem;
+  color: var(--olive);
+  font-family: var(--font-lora), Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.article-prose blockquote p {
+  margin-top: 0;
+}
+
+.article-prose :not(pre) > code {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--olive) 10%, transparent);
+  padding: 0.1em 0.3em;
+  color: var(--ink);
+  font-size: 0.9em;
+}
+
+.article-prose pre {
+  margin-top: 2.5rem;
+  overflow-x: auto;
+  background: var(--cinema);
+  padding: 1.25rem;
+  color: var(--cinema-foreground);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.article-prose pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.article-prose hr {
+  margin-top: 4rem;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.article-prose img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .article-prose {
+    font-size: 1.125rem;
+  }
+}
