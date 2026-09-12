@@ -8,6 +8,7 @@ const navigationItems = [
   { label: "Categories", href: "/categories" },
   { label: "Tags", href: "/tags" },
   { label: "Archive", href: "/archive" },
+  { label: "Search", href: "/search" },
 ];
 
 function isCurrentPath(pathname: string, href: string) {
