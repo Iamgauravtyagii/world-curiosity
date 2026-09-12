@@ -76,10 +76,16 @@ a meaningful milestone, rather than relying only on commit history.
     archive browsing are complete.
   - Related-article rules remain deferred until enough real content exists to
     evaluate them.
-- **Phase 5 — Media and responsive refinement:** in progress.
-  - Image folder conventions, accessible alt text/captions, `next/image`, and
-    responsive image `sizes` are in place.
-- **Phase 6 onward:** not started.
+- **Phase 5 — Media and responsive refinement:** complete.
+  - Image folder conventions, accessible alt text/captions, `next/image`,
+    responsive image `sizes`, and manual responsive/keyboard checks are complete.
+- **Phase 6 — Search and publishing metadata:** in progress.
+  - Lightweight static article search is complete.
+  - Publishing metadata, canonical URLs, sitemap, robots, sharing metadata, and
+    practical RSS remain.
+- **Visual editorial direction:** documented; application implementation has not
+  started. It should be delivered in small, reviewable UI changes before public
+  release, while preserving the existing technical architecture.
 
 ### Phase 0 — Application baseline
 
@@ -92,13 +98,12 @@ baseline without adding product features.
 
 ### Phase 1 — Editorial site shell
 
-Goal: replace the starter presentation with a minimal, accessible publication
-shell.
+Goal: replace the starter presentation with an accessible publication shell.
 
 - Establish shared document metadata and the root layout.
 - Establish base typography and global styles.
 - Create the initial home-page structure.
-- Add calm, responsive primary navigation.
+- Add responsive primary navigation.
 
 ### Phase 2 — Content foundation
 
@@ -136,6 +141,11 @@ Goal: make photography first-class without complicating media infrastructure.
 - Add responsive optimized image rendering.
 - Add gallery support only when a real article needs it.
 - Verify mobile layout, captions, and alt text.
+
+The next visual work should apply the documented **I Got Curious** editorial
+direction: warm personal introduction, typography-led hierarchy, photography
+composition, and restrained motion. Treat this as a separate series of focused
+implementation chunks, not as permission for a one-shot redesign.
 
 ### Phase 6 — Search and publishing metadata
 

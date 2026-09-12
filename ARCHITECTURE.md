@@ -4,7 +4,9 @@
 
 Use the simplest architecture that satisfies the current product requirements while leaving clear upgrade paths for future needs.
 
-The website is primarily a content publication, not a data-intensive application.
+The website is a personal, content-first editorial journal, not a data-intensive
+application. Personal experience often starts a story, while research,
+photography, and reflection give it wider context.
 
 ## 2. Proposed high-level architecture
 
@@ -62,6 +64,17 @@ Benefits:
 - content and code can evolve together
 
 A CMS/database may be introduced later if the editorial workflow demonstrates a real need.
+
+### Editorial flexibility
+
+The shared metadata makes stories discoverable; it must not force every story
+into the same presentation. MDX should continue to hold primarily editorial
+content, while reusable presentation blocks can be introduced only when real
+stories establish a need. Photography-led place stories, book reflections,
+technology explorations, and personal essays may use different compositions.
+
+“I GOT CURIOUS →” is an editorial writing device for transitions into deeper
+context. It does not require a new frontmatter field or custom component yet.
 
 ### V1 directory convention
 
@@ -129,7 +142,7 @@ Each article MDX file must provide the following frontmatter:
 | `slug` | string | Required, lowercase words separated by hyphens. It must match the filename and image directory. |
 | `date` | string | Required publication date in `YYYY-MM-DD` format. |
 | `updated` | string | Optional update date in `YYYY-MM-DD` format. |
-| `description` | string | Required, non-empty short article summary. |
+| `description` | string | Required, non-empty short article summary or personal deck/hook. |
 | `category` | string | Required primary category. The controlled category vocabulary will be defined separately. |
 | `tags` | string array | Required, with at least one tag. |
 | `coverImage` | object | Required. Contains `src`, required non-empty `alt`, and optional `caption`. |
@@ -166,6 +179,11 @@ Do not create a custom CMS or duplicate validation rules across routes.
 Use framework-supported image optimization and responsive delivery.
 
 Keep source photographs separate from generated/optimized output.
+
+The eventual presentation layer should allow composed editorial image layouts
+(for example, large story tiles, image pairs, and full-width moments) without
+requiring every article to use them. Add those blocks only when a story needs
+them.
 
 ### Video
 

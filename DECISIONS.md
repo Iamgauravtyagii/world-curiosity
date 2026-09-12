@@ -77,9 +77,9 @@ The project should avoid adding another UI abstraction unless a real requirement
 
 ## Decision 004 — Styling
 
-**Status:** Provisional
+**Status:** Accepted
 
-Use **Tailwind CSS**, subject to validation during the initial UI implementation.
+Use **Tailwind CSS**.
 
 ### Why
 
@@ -87,13 +87,16 @@ Use **Tailwind CSS**, subject to validation during the initial UI implementation
 - strong ecosystem
 - predictable utility-based styling
 - easy collaboration with AI coding tools
-- avoids introducing a component library before the visual identity is known
+- supports a custom warm editorial visual system without a component library
 
 ### Rejected for now
 
 Do not add a large component library such as Material UI, Chakra, or similar at project initialization.
 
-The visual language of the site should be custom and editorial.
+The visual language of **I Got Curious** should be custom, warm, photography-led,
+and editorial: expressive serif display type, understated sans-serif utility
+type, and restrained earthy accents. Tailwind is an implementation tool, not a
+visual identity.
 
 ---
 
@@ -117,6 +120,10 @@ Use **Markdown/MDX-based content** for V1.
 MDX should not become an excuse to embed arbitrary application logic into articles.
 
 Articles remain primarily content.
+
+MDX also supports flexible editorial composition when a real story needs it,
+but reusable visual blocks should be introduced deliberately rather than making
+every article a fixed template.
 
 ---
 

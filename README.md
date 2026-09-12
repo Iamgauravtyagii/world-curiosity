@@ -1,29 +1,37 @@
-# World Curiosity
+# I Got Curious
 
-A personal-curated digital publication for interesting things about the world, collected through travel, history, culture, art, technology, and curiosity.
+A visual personal journal of places, history, culture, art, technology, books,
+ideas, experiments, hobbies, and personal reflections.
 
-The site is intentionally broader than a conventional travel blog. The author is the curator/narrator; the subjects, stories, discoveries, and knowledge are the focus.
+Stories begin with Gaurav's experiences, photographs, observations, and
+curiosity, then can expand into research, history, culture, technology, or
+reflection. It is personal without being a self-centred diary or a photo dump.
+
+The Git repository remains named `world-curiosity`; only the public-facing brand
+is now **I Got Curious**.
 
 ## Project status
 
-**Phase:** Phase 5 — Media and responsive refinement (in progress)
+**Phase:** Phase 6 — Search and publishing metadata (in progress)
 
-The Next.js application baseline, editorial site shell, Git-managed MDX content
-foundation, article pages, and discovery routes are in place. The current work
-focuses on responsive image delivery and media conventions.
+The application baseline, MDX content foundation, article pages, discovery
+routes, responsive image handling, and lightweight static search are in place.
+The remaining Phase 6 work is publishing metadata. The new visual editorial
+direction is documented but has not yet been implemented in application code.
 
-The next implementation milestone after Phase 5 is search and publishing
-metadata.
+The next focused implementation work is publishing metadata, followed by the
+documented visual editorial system.
 
 ## Working principle
 
-> Interesting things about the world, collected through travel, history, culture, art, technology, and curiosity.
+> I experience something → I notice something → I get curious → I learn about it → I tell the story or reflect on it.
 
 ## Planned content model
 
 - **Categories:** a small controlled set of broad subjects.
 - **Tags:** flexible cross-cutting labels such as places, periods, people, technologies, themes, and subjects.
-- **Articles:** primarily text + photographs, with occasional embedded video and custom interactive/media components where useful.
+- **Stories:** flexible combinations of narrative, photographs, research, and
+  reflection. Their form should follow the subject rather than a rigid template.
 
 ## Initial goals
 

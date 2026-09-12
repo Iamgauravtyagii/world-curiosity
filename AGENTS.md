@@ -1,4 +1,4 @@
-# World Curiosity — Agent Instructions
+# I Got Curious — Agent Instructions
 
 ## Instruction hierarchy
 
@@ -10,9 +10,14 @@
 
 ## Project context
 
-World Curiosity is a public, editorial, content-first publication about travel,
-history, culture, art, technology, and curiosity. It is not primarily a personal
-blog or a SaaS application.
+I Got Curious is a public, visual personal editorial journal about places,
+history, culture, art, technology, books, ideas, experiments, hobbies, and
+personal reflections. The repository remains named `world-curiosity`.
+
+Personal experience, photographs, and observations usually begin a story; the
+story can then expand into research, context, or reflection. The product is not
+a self-centred diary, photo dump, SaaS application, or formal corporate
+magazine.
 
 V1 stack:
 
@@ -78,6 +83,20 @@ requires them.
 - Keep source media separate from generated or optimized output.
 - Do not commit large video files by default.
 
+## Visual and editorial direction
+
+- Preserve the warm, personal, curious, editorial, visual, and slightly playful
+  character of **I Got Curious**.
+- Prefer expressive serif display typography, understated sans-serif utility
+  typography, earthy editorial colours, and photography-led composition.
+- Do not revert to generic minimal/docs styling or introduce a different colour
+  system for every category.
+- Treat “I GOT CURIOUS →” as a recurring editorial device. Do not add a schema
+  field or custom component for it until a focused implementation task asks for
+  one.
+- Keep visual systems flexible: add reusable editorial blocks only in response
+  to real content needs, rather than imposing one rigid article template.
+
 ## Implementation and verification
 
 Use small, reviewable changes:
@@ -120,6 +139,8 @@ Challenge weak assumptions with concrete reasoning instead of blindly agreeing.
 10. Build archive.
 11. Add search.
 12. Add SEO metadata, sitemap, RSS, and sharing metadata.
-13. Add visual polish and accessibility improvements.
-14. Deploy.
-15. Replace sample content with real content.
+13. Implement the documented I Got Curious editorial visual system in focused
+    reviewable chunks.
+14. Add visual polish and accessibility improvements.
+15. Deploy.
+16. Replace sample content with real content.

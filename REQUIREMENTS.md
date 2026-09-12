@@ -2,24 +2,28 @@
 
 ## 1. Product vision
 
-Create a public, content-first website that acts as a curated collection of stories, observations, experiences, and knowledge about interesting things in the world.
+Create a public, visual personal journal called **I Got Curious**. It collects
+stories about places, history, culture, art, technology, books, ideas,
+experiments, hobbies, and personal reflections.
 
-The site is not primarily an autobiographical blog. Personal experiences may provide the narrative context, but the subject matter is the main focus.
+The recurring narrative pattern is: personal experience or observation →
+curiosity → learning or research → story or reflection. Personal experience is
+usually the entry point, but the result should not feel like a self-centred diary
+or a photo dump. A story may move naturally into historical, cultural,
+technical, philosophical, or reflective territory.
 
 ## 2. Content areas
 
 Initial broad categories may include:
 
-- Travel
-- History
-- Museums
-- Art
-- Culture
-- Food
-- Technology
-- AI
-- Astrology
-- Ideas / Curiosity
+- Places and travel
+- History, architecture, and museums
+- Art and culture
+- Food and books
+- Technology and AI
+- Ideas, mythology, religion, and consciousness
+- Experiments, hobbies, and skills
+- Personal reflections
 
 The exact category list is intentionally not frozen yet.
 
@@ -39,6 +43,10 @@ Each article should support at least:
 - optional image gallery
 - optional embedded video
 - optional external references/sources
+
+Article structure should remain flexible. A photography-led place story, book
+reflection, technology rabbit hole, and personal essay may use different
+combinations of narrative and media while sharing the same reliable metadata.
 
 ### Categories vs tags
 
@@ -67,6 +75,11 @@ The site should support:
 - related/recommended articles where useful
 - clear navigation/sidebar
 - links between related topics
+
+The current category, tag, and archive routes remain useful discovery tools.
+Future public navigation should feel human and story-led—likely centred on
+Stories, Places, Ideas, About, and Search—but route and taxonomy changes require
+a separate decision.
 
 ## 5. Media
 
@@ -111,16 +124,46 @@ Writing content in version-controlled Markdown/MDX is preferred for V1.
 
 ## 7. Design
 
-The site should feel more like an independent digital magazine / journal than a generic developer portfolio or conventional travel blog.
+The site should feel like a warm, photography-led personal editorial journal:
+curious, thoughtful, human, and slightly playful. It should avoid generic
+Tailwind/docs presentation, corporate magazine polish, chaotic portfolio energy,
+and a travel-only identity.
 
 Priorities:
 
-1. typography and readability
-2. photography
-3. calm navigation
-4. strong article presentation
-5. responsive behaviour
-6. visual consistency
+1. expressive, readable editorial typography
+2. central, intentionally composed photography
+3. strong story presentation and visual rhythm
+4. warm, calm, accessible navigation
+5. responsive behaviour and visual consistency
+
+### Visual direction
+
+- Use a warm paper/ivory base, charcoal text, terracotta or rust accent, muted
+  olive secondary accent, and occasional deep-charcoal cinematic sections.
+- Use an expressive serif for large display headings and article titles, with an
+  understated sans-serif for navigation, metadata, captions, and labels.
+- Mix warm reading areas with selected dark or photographic transitions rather
+  than using a single uniform surface.
+- Prefer large editorial story tiles, mixed-size image grids, image pairs,
+  portrait/landscape combinations, captions, and full-width visual moments over
+  identical small cards.
+- Keep motion restrained and purposeful: subtle image zoom/darken, gentle
+  reveals, and soft section transitions only.
+
+### Homepage and article rhythm
+
+The homepage should read like a visual personal notebook: a human introduction,
+photography-led featured stories, a cinematic story moment, mixed-topic stories,
+and quiet personal interludes. Categories, tags, archive, and search support
+discovery but should not dominate the identity.
+
+Article pages should support a composed visual narrative: concise metadata, a
+large title and personal hook, a hero image, readable prose, captions, and
+optional reusable editorial blocks such as image pairs, pull quotes, or
+contextual sections. The phrase **“I GOT CURIOUS →”** is a recurring editorial
+device for a story's deeper rabbit holes; its eventual visual implementation is
+separate from the content schema.
 
 ## 8. Technical requirements
 
