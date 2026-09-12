@@ -24,7 +24,7 @@ export function PrimaryNavigation() {
 
   return (
     <nav aria-label="Primary navigation">
-      <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+      <ul className="flex flex-wrap gap-x-5 gap-y-3 text-xs uppercase tracking-[0.14em] text-muted">
         {navigationItems.map((item) => {
           const isCurrent = isCurrentPath(pathname, item.href);
 
@@ -32,7 +32,11 @@ export function PrimaryNavigation() {
             <li key={item.href}>
               <Link
                 aria-current={isCurrent ? "page" : undefined}
-                className={isCurrent ? "font-medium underline underline-offset-4" : "hover:underline"}
+                className={
+                  isCurrent
+                    ? "font-semibold text-rust underline decoration-rust underline-offset-6"
+                    : "hover:text-foreground hover:underline"
+                }
                 href={item.href}
               >
                 {item.label}

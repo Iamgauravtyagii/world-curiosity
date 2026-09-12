@@ -3,19 +3,19 @@ import { PrimaryNavigation } from "./primary-navigation";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-black/10">
-      <div className="mx-auto w-full max-w-6xl px-6 py-6 sm:px-10">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <header className="border-b border-border bg-background">
+      <div className="mx-auto w-full max-w-6xl px-6 py-7 sm:px-10 sm:py-8">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <Link
-            className="text-sm font-semibold uppercase tracking-[0.18em]"
+            className="font-display text-3xl leading-none tracking-[-0.04em] sm:text-4xl"
             href="/"
           >
-            World Curiosity
+            I Got Curious
           </Link>
           <PrimaryNavigation />
         </div>
-        <p className="mt-4 text-sm text-muted">
-          A journal of places, culture, history, and ideas.
+        <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
+          Stories, photographs, and the things I get curious about.
         </p>
       </div>
     </header>
