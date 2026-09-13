@@ -17,7 +17,11 @@ export default async function Home() {
           A personal notebook
         </p>
         <h1 className="mt-6 max-w-4xl font-display text-6xl leading-[0.92] tracking-[-0.06em] sm:text-7xl lg:text-8xl">
-          I Got <span className="text-rust">Curious.</span>
+          <span className="block">Somewhere between</span>
+          <span className="block">
+            <span className="text-headline-wondering">wondering</span> and{" "}
+            <span className="text-headline-wandering">wandering.</span>
+          </span>
         </h1>
         <div className="mt-10 max-w-2xl space-y-5 text-lg leading-8 text-muted sm:text-xl sm:leading-9">
           <p>Hey, I’m Gaurav.</p>
@@ -31,7 +35,7 @@ export default async function Home() {
 
       {leadArticle ? (
         <>
-          <section className="border-y border-border">
+          <section className="border-y border-border bg-white">
             <div
               className={`mx-auto w-full max-w-6xl px-6 py-16 sm:px-10 sm:py-24 ${
                 supportingArticles.length > 0

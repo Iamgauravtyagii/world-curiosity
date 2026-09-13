@@ -6,6 +6,8 @@
   --muted: #6c6257;
   --rust: #a14d2e;
   --olive: #5c6547;
+  --headline-wondering: #56382c;
+  --headline-wandering: rgb(67, 137, 74);
   --cinema: #282820;
   --cinema-foreground: #f7f0e5;
   --cinema-muted: #c7beaf;
@@ -21,6 +23,8 @@
   --color-muted: var(--muted);
   --color-rust: var(--rust);
   --color-olive: var(--olive);
+  --color-headline-wondering: var(--headline-wondering);
+  --color-headline-wandering: var(--headline-wandering);
   --color-cinema: var(--cinema);
   --color-cinema-foreground: var(--cinema-foreground);
   --color-cinema-muted: var(--cinema-muted);
