@@ -81,7 +81,7 @@ export default async function ArticlePage({
   const articleUrl = absoluteUrl(`/articles/${article.frontmatter.slug}`);
 
   return (
-    <main className="flex-1" id="main-content">
+    <main className="flex-1 bg-reading-surface" id="main-content">
       <article>
         <script
           dangerouslySetInnerHTML={{

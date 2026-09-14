@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { EditorialPageCard } from "@/components/editorial-page-card";
 import { getAllStories, type Story } from "@/lib/stories";
 
 export const metadata: Metadata = {
@@ -22,10 +23,8 @@ export default async function ArchivePage() {
   }, {});
 
   return (
-    <main
-      className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 sm:px-10 sm:py-24"
-      id="main-content"
-    >
+    <EditorialPageCard>
+      <div className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10 sm:py-24 lg:px-14">
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-muted">
         Chronological index
       </p>
@@ -58,6 +57,7 @@ export default async function ArchivePage() {
       ) : (
         <p className="mt-12 text-muted">No articles have been published yet.</p>
       )}
-    </main>
+      </div>
+    </EditorialPageCard>
   );
 }

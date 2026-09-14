@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lora } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { PageTransition } from "@/components/page-transition";
 import { absoluteUrl, siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -67,7 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         <SiteHeader />
-        {children}
+        <PageTransition>{children}</PageTransition>
         <SiteFooter />
       </body>
     </html>

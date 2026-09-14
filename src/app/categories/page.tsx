@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { EditorialPageCard } from "@/components/editorial-page-card";
 import { getAllStories, getStoryCategories } from "@/lib/stories";
 
 export const metadata: Metadata = {
@@ -12,10 +13,8 @@ export default async function CategoriesPage() {
   const categories = getStoryCategories(await getAllStories());
 
   return (
-    <main
-      className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 sm:px-10 sm:py-24"
-      id="main-content"
-    >
+    <EditorialPageCard>
+      <div className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10 sm:py-24 lg:px-14">
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-muted">
         Browse by subject
       </p>
@@ -43,6 +42,7 @@ export default async function CategoriesPage() {
       ) : (
         <p className="mt-12 text-muted">No categories are available yet.</p>
       )}
-    </main>
+      </div>
+    </EditorialPageCard>
   );
 }
