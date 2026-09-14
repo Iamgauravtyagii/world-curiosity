@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { StoryTile } from "@/components/story-tile";
-import { getAllArticles } from "@/lib/articles";
+import { getAllStories, storyImageUrl } from "@/lib/stories";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
-  const articles = await getAllArticles();
+  const articles = await getAllStories();
   const leadArticle = articles[0];
   const cinematicArticle = articles[1] ?? leadArticle;
   const supportingArticles = articles.slice(2, 4);
@@ -55,7 +60,11 @@ export default async function Home() {
                       height={1200}
                       priority
                       sizes="(min-width: 1024px) 720px, (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
-                      src={leadArticle.frontmatter.coverImage.src}
+                      src={storyImageUrl(
+                        leadArticle.frontmatter.coverImage,
+                        1600,
+                        1200,
+                      )}
                       width={1600}
                     />
                   </div>
@@ -151,7 +160,11 @@ export default async function Home() {
                     className="aspect-[4/3] w-full object-cover opacity-90 transition duration-700 ease-out group-hover:scale-[1.025] group-hover:opacity-75 group-focus-visible:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100"
                     height={1000}
                     sizes="(min-width: 1280px) 540px, (min-width: 768px) 45vw, calc(100vw - 3rem)"
-                    src={cinematicArticle.frontmatter.coverImage.src}
+                    src={storyImageUrl(
+                      cinematicArticle.frontmatter.coverImage,
+                      1400,
+                      1050,
+                    )}
                     width={1400}
                   />
                 </Link>

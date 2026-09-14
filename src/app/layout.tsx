@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lora } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { absoluteUrl, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,9 +21,24 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "I Got Curious",
+  metadataBase: siteUrl,
+  title: {
+    default: "I Got Curious",
+    template: "%s | I Got Curious",
+  },
   description:
-    "A visual personal journal of places, ideas, photographs, and the things I get curious about.",
+    "A visual personal journal about places, history, culture, art, technology, and ideas—explored through experience, photography, and curiosity.",
+  applicationName: "I Got Curious",
+  openGraph: {
+    description:
+      "A visual personal journal about places, history, culture, art, technology, and ideas—explored through experience, photography, and curiosity.",
+    siteName: "I Got Curious",
+    type: "website",
+    url: "/",
+  },
+  twitter: {
+    card: "summary",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -32,6 +48,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              description: metadata.description,
+              name: "I Got Curious",
+              url: absoluteUrl("/"),
+            }).replace(/</g, "\\u003c"),
+          }}
+          type="application/ld+json"
+        />
         <a
           className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-50 focus:rounded-md focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
           href="#main-content"

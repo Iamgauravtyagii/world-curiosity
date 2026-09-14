@@ -25,7 +25,7 @@ V1 stack:
 - TypeScript
 - React
 - Tailwind CSS
-- Markdown/MDX content stored in Git
+- Sanity CMS for story content
 
 ## Before substantial changes
 
@@ -58,7 +58,7 @@ Before modifying files:
 Do not introduce without explicit approval:
 
 - databases or ORMs
-- CMS platforms
+- additional CMS platforms
 - authentication, comments, or user accounts
 - external media infrastructure
 - large UI component libraries
@@ -74,11 +74,11 @@ requires them.
 
 ## Content and media rules
 
-- Store content in Git-managed Markdown/MDX.
-- Keep content loading and filesystem access server-only.
-- Validate all article frontmatter through one consistent schema.
+- Sanity is the source of truth for published stories and story images.
+- Keep Sanity queries and image URL generation server-only.
+- Use the Studio schema as the single validation contract for story metadata.
 - Each article has one primary category and flexible tags.
-- Keep MDX primarily editorial; do not use it for arbitrary application logic.
+- Keep Portable Text primarily editorial; do not use it for arbitrary application logic.
 - Preserve accessible alt text and captions where appropriate.
 - Keep source media separate from generated or optimized output.
 - Do not commit large video files by default.
@@ -127,20 +127,11 @@ Challenge weak assumptions with concrete reasoning instead of blindly agreeing.
 
 ## Current implementation order
 
-1. Initialize Next.js + TypeScript.
-2. Verify development, linting, type checking, and production build.
-3. Establish base layout and typography.
-4. Build navigation/sidebar.
-5. Define content schema.
-6. Add one sample article.
-7. Build article page.
-8. Build category and tag pages.
-9. Add responsive image handling.
-10. Build archive.
-11. Add search.
-12. Add SEO metadata, sitemap, RSS, and sharing metadata.
-13. Implement the documented I Got Curious editorial visual system in focused
-    reviewable chunks.
-14. Add visual polish and accessibility improvements.
-15. Deploy.
-16. Replace sample content with real content.
+1. Next.js, TypeScript, Tailwind, and the shared editorial shell are complete.
+2. Sanity is the sole published-story source; MDX has been retired.
+3. Story, discovery, archive, search, About, and responsive media routes are
+   complete.
+4. SEO metadata, canonical URLs, sitemap, robots, and 60-second revalidation
+   are complete.
+5. Sanity Studio and the Vercel production site are deployed and verified.
+6. Continue with real content and only focused improvements justified by use.

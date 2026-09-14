@@ -1,11 +1,18 @@
 import Link from "next/link";
-import { getAllArticles, type Article } from "@/lib/articles";
+import type { Metadata } from "next";
+import { getAllStories, type Story } from "@/lib/stories";
 
-type ArticlesByYear = Record<string, Article[]>;
+export const metadata: Metadata = {
+  alternates: { canonical: "/archive" },
+  description: "A chronological archive of stories from I Got Curious.",
+  title: "Archive",
+};
+
+type StoriesByYear = Record<string, Story[]>;
 
 export default async function ArchivePage() {
-  const articles = await getAllArticles();
-  const articlesByYear = articles.reduce<ArticlesByYear>((groups, article) => {
+  const articles = await getAllStories();
+  const articlesByYear = articles.reduce<StoriesByYear>((groups, article) => {
     const year = article.frontmatter.date.slice(0, 4);
 
     groups[year] ??= [];

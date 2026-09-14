@@ -1,31 +1,31 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllArticles } from "@/lib/articles";
-import { toSlug } from "@/lib/slug";
+import {
+  getAllStories,
+  getStoriesByCategorySlug,
+  getStoryCategories,
+} from "@/lib/stories";
 
 export async function generateStaticParams() {
-  const articles = await getAllArticles();
-  const categories = new Set(
-    articles.map((article) => article.frontmatter.category),
-  );
+  const categories = getStoryCategories(await getAllStories());
 
-  return [...categories].map((category) => ({ slug: toSlug(category) }));
+  return categories.map((category) => ({ slug: category.slug }));
 }
 
 export default async function CategoryPage({
   params,
 }: PageProps<"/categories/[slug]">) {
   const { slug } = await params;
-  const articles = await getAllArticles();
-  const categoryArticles = articles.filter(
-    (article) => toSlug(article.frontmatter.category) === slug,
-  );
+  const stories = await getAllStories();
+  const categoryArticles = getStoriesByCategorySlug(stories, slug);
 
   if (categoryArticles.length === 0) {
     notFound();
   }
 
-  const category = categoryArticles[0].frontmatter.category;
+  const category = getStoryCategories(categoryArticles).find(
+    (candidate) => candidate.slug === slug,
+  );
 
   return (
     <main
@@ -36,7 +36,7 @@ export default async function CategoryPage({
         Category
       </p>
       <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-        {category}
+        {category?.title}
       </h1>
       <div className="mt-12 divide-y divide-black/10 border-y border-black/10">
         {categoryArticles.map((article) => (

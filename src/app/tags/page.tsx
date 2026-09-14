@@ -1,20 +1,15 @@
 import Link from "next/link";
-import { getAllArticles } from "@/lib/articles";
-import { toSlug } from "@/lib/slug";
+import type { Metadata } from "next";
+import { getAllStories, getStoryTagsIndex } from "@/lib/stories";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/tags" },
+  description: "Browse I Got Curious stories by topic and recurring thread.",
+  title: "Tags",
+};
 
 export default async function TagsPage() {
-  const articles = await getAllArticles();
-  const tagCounts = new Map<string, number>();
-
-  articles.forEach((article) => {
-    article.frontmatter.tags.forEach((tag) => {
-      tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
-    });
-  });
-
-  const tags = [...tagCounts.entries()].sort(([first], [second]) =>
-    first.localeCompare(second),
-  );
+  const tags = getStoryTagsIndex(await getAllStories());
 
   return (
     <main
@@ -29,17 +24,17 @@ export default async function TagsPage() {
       </h1>
       {tags.length > 0 ? (
         <ul className="mt-12 divide-y divide-black/10 border-y border-black/10">
-          {tags.map(([tag, count]) => (
-            <li key={tag}>
+          {tags.map((tag) => (
+            <li key={tag.slug}>
               <Link
                 className="flex items-center justify-between gap-6 py-6 hover:underline"
-                href={`/tags/${toSlug(tag)}`}
+                href={`/tags/${tag.slug}`}
               >
                 <span className="text-xl font-semibold tracking-tight">
-                  {tag}
+                  {tag.title}
                 </span>
                 <span className="text-sm text-muted">
-                  {count} {count === 1 ? "article" : "articles"}
+                  {tag.count} {tag.count === 1 ? "article" : "articles"}
                 </span>
               </Link>
             </li>

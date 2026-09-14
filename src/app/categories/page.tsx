@@ -1,20 +1,15 @@
 import Link from "next/link";
-import { getAllArticles } from "@/lib/articles";
-import { toSlug } from "@/lib/slug";
+import type { Metadata } from "next";
+import { getAllStories, getStoryCategories } from "@/lib/stories";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/categories" },
+  description: "Browse I Got Curious stories by subject.",
+  title: "Categories",
+};
 
 export default async function CategoriesPage() {
-  const articles = await getAllArticles();
-  const categoryCounts = new Map<string, number>();
-
-  articles.forEach((article) => {
-    const category = article.frontmatter.category;
-
-    categoryCounts.set(category, (categoryCounts.get(category) ?? 0) + 1);
-  });
-
-  const categories = [...categoryCounts.entries()].sort(([first], [second]) =>
-    first.localeCompare(second),
-  );
+  const categories = getStoryCategories(await getAllStories());
 
   return (
     <main
@@ -29,17 +24,17 @@ export default async function CategoriesPage() {
       </h1>
       {categories.length > 0 ? (
         <ul className="mt-12 divide-y divide-black/10 border-y border-black/10">
-          {categories.map(([category, count]) => (
-            <li key={category}>
+          {categories.map((category) => (
+            <li key={category.slug}>
               <Link
                 className="flex items-center justify-between gap-6 py-6 hover:underline"
-                href={`/categories/${toSlug(category)}`}
+                href={`/categories/${category.slug}`}
               >
                 <span className="text-xl font-semibold tracking-tight">
-                  {category}
+                  {category.title}
                 </span>
                 <span className="text-sm text-muted">
-                  {count} {count === 1 ? "article" : "articles"}
+                  {category.count} {category.count === 1 ? "article" : "articles"}
                 </span>
               </Link>
             </li>

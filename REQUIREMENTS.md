@@ -76,10 +76,9 @@ The site should support:
 - clear navigation/sidebar
 - links between related topics
 
-The current category, tag, and archive routes remain useful discovery tools.
-Future public navigation should feel human and story-led—likely centred on
-Stories, Places, Ideas, About, and Search—but route and taxonomy changes require
-a separate decision.
+Primary navigation is centred on Home, Stories, Categories, Archive, About, and
+Search. Tags remain available as a supporting discovery route and from article
+and footer links rather than as a primary navigation item.
 
 ## 5. Media
 
@@ -116,11 +115,10 @@ The first version does **not** require:
 - multi-user accounts
 - public comments
 - authentication
-- admin dashboard
-- database-backed CMS
 - live editing
 
-Writing content in version-controlled Markdown/MDX is preferred for V1.
+Stories are authored and published through Sanity Studio. The public website
+does not require an admin dashboard, user accounts, or live preview mode.
 
 ## 7. Design
 
@@ -202,7 +200,6 @@ Articles should support:
 
 These are explicitly out of scope for V1 but should not be made impossible by poor architecture:
 
-- headless CMS
 - database
 - author/admin interface
 - multiple authors

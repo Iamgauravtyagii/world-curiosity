@@ -1,31 +1,29 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllArticles } from "@/lib/articles";
-import { toSlug } from "@/lib/slug";
+import {
+  getAllStories,
+  getStoriesByTagSlug,
+  getStoryTagsIndex,
+} from "@/lib/stories";
 
 export async function generateStaticParams() {
-  const articles = await getAllArticles();
-  const tags = new Set(
-    articles.flatMap((article) => article.frontmatter.tags),
-  );
+  const tags = getStoryTagsIndex(await getAllStories());
 
-  return [...tags].map((tag) => ({ slug: toSlug(tag) }));
+  return tags.map((tag) => ({ slug: tag.slug }));
 }
 
 export default async function TagPage({ params }: PageProps<"/tags/[slug]">) {
   const { slug } = await params;
-  const articles = await getAllArticles();
-  const tagArticles = articles.filter((article) =>
-    article.frontmatter.tags.some((tag) => toSlug(tag) === slug),
-  );
+  const stories = await getAllStories();
+  const tagArticles = getStoriesByTagSlug(stories, slug);
 
   if (tagArticles.length === 0) {
     notFound();
   }
 
-  const tag = tagArticles
-    .flatMap((article) => article.frontmatter.tags)
-    .find((articleTag) => toSlug(articleTag) === slug);
+  const tag = getStoryTagsIndex(tagArticles).find(
+    (candidate) => candidate.slug === slug,
+  );
 
   return (
     <main
@@ -36,7 +34,7 @@ export default async function TagPage({ params }: PageProps<"/tags/[slug]">) {
         Tag
       </p>
       <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-        {tag}
+        {tag?.title}
       </h1>
       <div className="mt-12 divide-y divide-black/10 border-y border-black/10">
         {tagArticles.map((article) => (

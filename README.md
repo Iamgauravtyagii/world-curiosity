@@ -12,15 +12,16 @@ is now **I Got Curious**.
 
 ## Project status
 
-**Phase:** Phase 6 — Search and publishing metadata (in progress)
+**Phase:** Phase 7 — Production deployment and QA (complete)
 
-The application baseline, MDX content foundation, article pages, discovery
-routes, responsive image handling, and lightweight static search are in place.
-The remaining Phase 6 work is publishing metadata. The new visual editorial
-direction is documented but has not yet been implemented in application code.
+The application baseline, Sanity content foundation, editorial visual system,
+article pages, discovery routes, responsive image handling, lightweight static
+search, and production SEO foundation are complete. Sanity Studio and the Vercel
+production site are deployed, and the publish-to-live update flow has been
+verified.
 
-The next focused implementation work is publishing metadata, followed by the
-documented visual editorial system.
+Routine work now consists of publishing real stories and making only focused
+improvements justified by use.
 
 ## Working principle
 
@@ -51,6 +52,9 @@ documented visual editorial system.
 
 ## Current technology decision
 
-**Proposed:** Next.js + TypeScript + React + Tailwind CSS, with Markdown/MDX-based content.
+**Current:** Next.js + TypeScript + React + Tailwind CSS, with Sanity as the
+story CMS and content source of truth.
 
-This decision is documented in `DECISIONS.md` and should be treated as the current baseline until implementation reveals a concrete reason to change it.
+Next.js renders the public experience; stories and story images are authored in
+Sanity Studio. Local `/public` assets remain appropriate for branding and UI
+assets rather than published story content.

@@ -1,8 +1,15 @@
 import { ArticleSearch } from "@/components/article-search";
-import { getAllArticles } from "@/lib/articles";
+import type { Metadata } from "next";
+import { getAllStories } from "@/lib/stories";
+
+export const metadata: Metadata = {
+  description: "Search the I Got Curious story library.",
+  robots: { follow: true, index: false },
+  title: "Search",
+};
 
 export default async function SearchPage() {
-  const articles = await getAllArticles();
+  const articles = await getAllStories();
   const searchArticles = articles.map(({ frontmatter }) => ({
     title: frontmatter.title,
     description: frontmatter.description,

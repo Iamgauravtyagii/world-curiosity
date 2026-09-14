@@ -104,26 +104,24 @@ visual identity.
 
 **Status:** Accepted
 
-Use **Markdown/MDX-based content** for V1.
+Use **Sanity Portable Text** for story content.
 
 ### Why
 
-- human-readable
-- Git-friendly
-- easy to edit
-- excellent for long-form articles
-- supports metadata/frontmatter
-- MDX allows richer React components when necessary
+- GUI-based authoring and publishing
+- structured metadata, categories, and images
+- Portable Text supports long-form editorial writing
+- custom editorial blocks retain flexible composition
 
 ### Important constraint
 
-MDX should not become an excuse to embed arbitrary application logic into articles.
+Portable Text should not become an excuse to embed arbitrary application logic into articles.
 
 Articles remain primarily content.
 
-MDX also supports flexible editorial composition when a real story needs it,
-but reusable visual blocks should be introduced deliberately rather than making
-every article a fixed template.
+Reusable Portable Text blocks are introduced deliberately rather than making
+every article a fixed template. Markdown/MDX was the original content approach
+and has been retired after the Sanity migration.
 
 ---
 
@@ -152,20 +150,15 @@ Revisit if requirements change.
 
 ## Decision 007 — CMS
 
-**Status:** Rejected for V1
+**Status:** Accepted
 
-No headless CMS initially.
+Use **Sanity** as the headless CMS and source of truth for stories.
 
 ### Reason
 
-Git-based Markdown/MDX provides:
-
-- version control
-- simple authoring
-- reproducibility
-- low operational overhead
-
-A CMS becomes relevant if publishing from a phone, non-technical editing, multiple authors, or remote editorial workflows become important.
+The editorial workflow now benefits from GUI-based authoring, media management,
+and structured Portable Text blocks. Next.js remains responsible for the public
+presentation and fetches published documents only; no draft preview is in scope.
 
 ---
 
@@ -173,13 +166,15 @@ A CMS becomes relevant if publishing from a phone, non-technical editing, multip
 
 **Status:** Provisional
 
-Use Next.js-supported image optimization and a repository-friendly source-image workflow initially.
+Use Next.js image optimization with Sanity-hosted story images.
 
 Do not introduce Cloudinary, S3, Cloudflare R2, or another media platform until actual media volume/requirements justify it.
 
 ### Reason
 
-The site will be image-heavy, but external media infrastructure is an operational dependency. Start simple, measure, then introduce it when needed.
+Sanity stores story images, crop/hotspot choices, alt text, and captions. Local
+`/public` assets remain for branding and UI needs. Do not add another media
+provider until requirements justify it.
 
 ---
 
@@ -207,7 +202,22 @@ Revisit after the article collection becomes large enough that the simple approa
 
 ---
 
-## Decision 011 — Authentication
+## Decision 011 — Content freshness
+
+**Status:** Accepted
+
+Use **60-second time-based Next.js revalidation** for published Sanity content.
+
+### Why
+
+This keeps the editorial site statically delivered without a manual rebuild for
+routine publishing. A webhook is intentionally deferred: a short delay is
+acceptable, and time-based revalidation needs no webhook endpoint, secret, or
+Sanity dashboard configuration.
+
+---
+
+## Decision 012 — Authentication
 
 **Status:** Rejected for V1
 
@@ -217,7 +227,7 @@ The initial product is a public publication with one author.
 
 ---
 
-## Decision 012 — AI coding workflow
+## Decision 013 — AI coding workflow
 
 **Status:** Accepted
 

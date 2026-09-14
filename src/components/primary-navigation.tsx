@@ -5,9 +5,10 @@ import { usePathname } from "next/navigation";
 
 const navigationItems = [
   { label: "Home", href: "/" },
+  { label: "Stories", href: "/stories" },
   { label: "Categories", href: "/categories" },
-  { label: "Tags", href: "/tags" },
   { label: "Archive", href: "/archive" },
+  { label: "About", href: "/about" },
   { label: "Search", href: "/search" },
 ];
 

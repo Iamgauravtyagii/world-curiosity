@@ -66,26 +66,32 @@ a meaningful milestone, rather than relying only on commit history.
   - Shared metadata, header, footer, global styling, a responsive home-page
     introduction, keyboard skip link, and primary navigation are complete.
 - **Phase 2 — Content foundation:** complete.
-  - The MDX directory convention, frontmatter schema, server-only loader, and
-    one validated sample article are in place.
+  - The initial MDX proof of concept has been retired after the Sanity cutover.
+  - Sanity Studio is now the validated source of truth for story metadata,
+    Portable Text bodies, categories, tags, and story images.
 - **Phase 3 — Article reading experience:** complete.
-  - Static article routes render validated metadata, cover images, captions,
-    topic links, and MDX bodies.
+  - Static article routes render published Sanity metadata, cover images,
+    captions, topic links, and Portable Text bodies.
 - **Phase 4 — Discovery and navigation:** complete.
   - Home-page discovery, category and tag indexes/pages, and chronological
     archive browsing are complete.
   - Related-article rules remain deferred until enough real content exists to
     evaluate them.
 - **Phase 5 — Media and responsive refinement:** complete.
-  - Image folder conventions, accessible alt text/captions, `next/image`,
+  - Sanity image metadata, accessible alt text/captions, `next/image`,
     responsive image `sizes`, and manual responsive/keyboard checks are complete.
-- **Phase 6 — Search and publishing metadata:** in progress.
+- **Phase 6 — Search and publishing metadata:** complete.
   - Lightweight static article search is complete.
-  - Publishing metadata, canonical URLs, sitemap, robots, sharing metadata, and
-    practical RSS remain.
-- **Visual editorial direction:** documented; application implementation has not
-  started. It should be delivered in small, reviewable UI changes before public
-  release, while preserving the existing technical architecture.
+  - Sanity-backed metadata, canonical URLs, sitemap, robots, sharing metadata,
+    and 60-second sitemap refresh are complete. RSS remains deferred until its
+    maintenance value is demonstrated.
+- **Visual editorial direction:** complete.
+  - The warm, photography-led I Got Curious visual system is implemented across
+    the public site.
+- **Phase 7 — Quality, deployment, and real content:** complete for release.
+  - Sanity Studio and the Vercel production site are deployed.
+  - Publish-to-live updates, production routes, and mobile layout have been
+    verified.
 
 ### Phase 0 — Application baseline
 
@@ -107,20 +113,19 @@ Goal: replace the starter presentation with an accessible publication shell.
 
 ### Phase 2 — Content foundation
 
-Goal: make Git-managed article content reliable before designing all discovery
+Goal: make Sanity-authored story content reliable before designing all discovery
 pages.
 
-- Choose and document the article directory convention.
-- Define one schema for article frontmatter.
-- Implement server-only article loading.
-- Add and validate one small sample article.
+- Define and validate the Sanity Story and Category schemas.
+- Implement server-only published-story queries.
+- Add and validate a published Sanity story.
 
 ### Phase 3 — Article reading experience
 
 Goal: render a complete article page from validated content.
 
 - Generate article routes from slugs.
-- Render article metadata and body.
+- Render article metadata and Portable Text body.
 - Add cover-image and caption conventions.
 - Add a simple, accessible article layout.
 
@@ -154,6 +159,8 @@ Goal: improve discovery and sharing while keeping the site static-first.
 - Select a lightweight search approach based on actual content volume.
 - Implement search as a separate focused chunk.
 - Add page metadata, canonical URLs, sitemap, robots, and sharing metadata.
+  This is complete with Sanity-backed article metadata and a 60-second sitemap
+  refresh cadence.
 - Add RSS if its maintenance cost remains practical.
 
 ### Phase 7 — Quality, deployment, and real content
@@ -164,6 +171,10 @@ Goal: prepare a reliable public release.
 - Verify representative pages and mobile behavior.
 - Choose a deployment provider without provider-specific coupling.
 - Deploy and replace sample content with real articles incrementally.
+
+The production deployment and baseline QA are complete. Continue publishing
+real stories incrementally; revisit only focused quality improvements that real
+content demonstrates are needed.
 
 ## Git discipline
 

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
-  <title id="title">Abstract sun and horizon</title>
-  <desc id="description">A warm terracotta sun rises over layered earth-toned hills.</desc>
-  <rect width="1600" height="900" fill="#ded8c9" />
-  <circle cx="1180" cy="270" r="140" fill="#c86b45" />
-  <path d="M0 520C240 430 480 460 720 560C980 670 1230 660 1600 500V900H0Z" fill="#9b704f" />
-  <path d="M0 640C300 520 600 600 850 710C1120 830 1370 740 1600 650V900H0Z" fill="#5f6552" />
-</svg>

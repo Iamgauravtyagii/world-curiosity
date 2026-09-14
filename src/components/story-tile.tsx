@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Article } from "@/lib/articles";
+import { storyImageUrl, type Story } from "@/lib/stories";
 
 type StoryTileProps = {
-  article: Article;
+  article: Story;
 };
 
 export function StoryTile({ article }: StoryTileProps) {
@@ -19,7 +19,7 @@ export function StoryTile({ article }: StoryTileProps) {
             className="aspect-[4/3] w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-90 group-focus-visible:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100"
             height={900}
             sizes="(min-width: 1024px) 360px, (min-width: 640px) calc((100vw - 7.5rem) / 2), calc(100vw - 3rem)"
-            src={coverImage.src}
+            src={storyImageUrl(coverImage, 1200, 900)}
             width={1200}
           />
         </div>
