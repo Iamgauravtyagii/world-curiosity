@@ -29,12 +29,11 @@ export default async function Home() {
           </span>
         </h1>
         <div className="mt-10 max-w-2xl space-y-5 text-lg leading-8 text-muted sm:text-xl sm:leading-9">
-          <p>Hey, I’m Gaurav.</p>
+          <p>Hey, I’m Gaurav. I’m curious about far too many things.</p>
           <p>
-            I go places, notice things, try stuff, read, overthink, and
-            occasionally fall into completely unnecessary rabbit holes.
+            Places send me digging into history, museum objects into rabbit holes, and books, art, technology, food, and random ideas usually leave me with more questions than answers.
           </p>
-          <p>This is where I keep the interesting bits.</p>
+          <p>I Got Curious is where I keep those detours — the things I experience, learn, photograph, and keep thinking about.</p>
         </div>
       </section>
 
@@ -115,8 +114,7 @@ export default async function Home() {
                 Lately, I’ve been curious about…
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
-                old maps · learning German · why churches feel the way they do ·
-                woodworking · consciousness · whatever comes next
+                learning German · human behaviour · consciousness · astrology · geopolitics · baking · woodworking · whatever comes next
               </p>
             </div>
           </section>
