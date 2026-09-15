@@ -33,7 +33,10 @@ export default async function Home() {
           <p>
             Places send me digging into history, museum objects into rabbit holes, and books, art, technology, food, and random ideas usually leave me with more questions than answers.
           </p>
-          <p>I Got Curious is where I keep those detours — the things I experience, learn, photograph, and keep thinking about.</p>
+          <p>
+            <strong>“I Got Curious”</strong> is where I keep those detours — the
+            things I experience, learn, photograph, and keep thinking about.
+          </p>
         </div>
       </section>
 
